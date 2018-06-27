@@ -5,45 +5,60 @@ set encoding=utf-8
 set ruler
 set cursorline
 set showmatch
+set showcmd
 set showmode
 set title
+set wildmenu
 
-set confirm " confirm :q in case of unsaved changes
-set fileencoding=utf-8 " encoding used when saving file
-set nobackup " do not keep the backup~ file
+set confirm 
+set fileencoding=utf-8 
 
-" edit settings
-set backspace=indent,eol,start " backspacing over everything in insert mode
-set expandtab " fill tabs with spaces
-set nojoinspaces " no extra space after '.' when joining lines
-set shiftwidth=4 " set indentation depth to 8 columns
-set softtabstop=4 " backspacing over 8 spaces like over tabs
-set tabstop=4 " set tabulator length to 8 columns
-set textwidth=80 " wrap lines automatically at 80th column
+set backspace=indent,eol,start 
+set expandtab 
+set nojoinspaces 
+set shiftwidth=4 
+set softtabstop=4 
+set tabstop=4 
+set textwidth=80 
 
-" search settings
-set hlsearch " highlight search results
-set ignorecase " do case insensitive search...
-set incsearch " do incremental search
-set smartcase " ...unless capital letters are used
+set hlsearch 
+set ignorecase 
+set incsearch 
+set smartcase 
 
-" file type specific settings
 filetype on " enable file type detection
-filetype plugin on " load the plugins for specific file types
-filetype indent on " automatically indent code
+filetype plugin on 
+filetype indent on 
 filetype plugin indent on
-" syntax highlighting
 set background=dark " dark background for console
-syntax enable " enable syntax highlighting
+syntax enable 
 
 " characters for displaying non-printable characters
 set listchars=eol:$,tab:>-,trail:.,nbsp:_,extends:+,precedes:+
 
-" general key mappings
-
-" center view on the search result
 noremap n nzz
 noremap N Nzz
+
+nnoremap B ^    " go to the beginning of the file
+nnoremap E $    " go to the end of the file
+
+nnoremap gV `[v`]   " highlight last inserted text
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Enable backup
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
 " press F4 to fix indentation in whole file; overwrites marker 'q' position
 noremap <F4> mqggVG=`qzz
