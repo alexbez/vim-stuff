@@ -39,8 +39,8 @@ set listchars=eol:$,tab:>-,trail:.,nbsp:_,extends:+,precedes:+
 noremap n nzz
 noremap N Nzz
 
-nnoremap B ^    " go to the beginning of the file
-nnoremap E $    " go to the end of the file
+nnoremap B ^
+nnoremap E $
 
 nnoremap gV `[v`]   " highlight last inserted text
 
