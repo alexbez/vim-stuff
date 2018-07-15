@@ -1,9 +1,9 @@
-
 set nocompatible
 
 set encoding=utf-8
 set ruler
 set cursorline
+set number
 set showmatch
 set showcmd
 set showmode
@@ -43,15 +43,6 @@ nnoremap B ^
 nnoremap E $
 
 nnoremap gV `[v`]   " highlight last inserted text
-
-" allows cursor change in tmux mode
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
 
 " Enable backup
 set backup
