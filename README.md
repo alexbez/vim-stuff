@@ -1,3 +1,4 @@
 # vim-stuff
 
-Vim configuration scripts
+Vim configuration scripts0
+Check .vimrc
